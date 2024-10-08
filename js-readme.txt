@@ -5,5 +5,11 @@ DataType : number, string, boolean, null, undefined, object, bigint, symbol (for
 console.log(typeof ""); // To check typeof variable
 console.log(typeof null);     //  Object   
 console.log(typeof undefined) // Object
+--------------------------------------------------------------------------------------------------------------
+ValueConversion 
+let score = "33abc" 
+let valueInNumber = Number(score); 
+console.log(valueInNumber)         // number
+console.log(typeof valueInNumber)  // NaN
 
 
