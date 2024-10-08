@@ -1,4 +1,4 @@
-console.table will take value in array format and it will print in tabular format.
+console.table([a,b,c]) will take value in array format and it will print in tabular format.
 Note :  Prefer not to use  var bcz of issue in block scope and functional scope
 -------------------------------------------------------------------------------------------------------------
 DataType : number, string, boolean, null, undefined, object, bigint, symbol (for uniqueness)
@@ -6,10 +6,14 @@ console.log(typeof "");         // To check typeof variable
 console.log(typeof null);      //  Object   
 console.log(typeof undefined) // Object
 --------------------------------------------------------------------------------------------------------------
-ValueConversion 
+Value Conversion 
+Number Value Conversion 
 let score = "33abc" 
 let valueInNumber = Number(score); 
 console.log(valueInNumber)         // number
 console.log(typeof valueInNumber)  // NaN
+If we try to convert Number such as string then it will return Nan and boolean will return 1 or 0
+-----------------------------------------------
+String Value Conversion
 
 
