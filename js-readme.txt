@@ -6,14 +6,16 @@ console.log(typeof "");         // To check typeof variable
 console.log(typeof null);      //  Object   
 console.log(typeof undefined) // Object
 --------------------------------------------------------------------------------------------------------------
-Value Conversion 
-Number Value Conversion 
+Value Conversion  
 let score = "33abc" 
 let valueInNumber = Number(score); 
 console.log(valueInNumber)         // number
 console.log(typeof valueInNumber)  // NaN
 If we try to convert Number such as string then it will return Nan and boolean will return 1 or 0
------------------------------------------------
-String Value Conversion
-
+Note : anything we add with string will always return string 
+e.g console.log( "1" + 2); // string   console.log( 1 + "2");  // string
+---------------------------------------------------------------------------------------------------------
+comparison
+console.log(null >= 0); // true 
+console.log(null == 0)  // false
 
