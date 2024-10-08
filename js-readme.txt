@@ -3,7 +3,7 @@ Note :  Prefer not to use  var bcz of issue in block scope and functional scope
 -------------------------------------------------------------------------------------------------------------
 DataType : number, string, boolean, null, undefined, object, bigint, symbol (for uniqueness)
 console.log(typeof ""); // To check typeof variable
-console.log(typeof null); ==> Object   
+console.log(typeof null);     //  Object   
 console.log(typeof undefined) // Object
 
 
