@@ -19,4 +19,8 @@ console.log(null == 0)  // false
 console.log("2" == 2)   // true
 console.log("2" === 2)  // false due to strict check
 --------------------------------------------- String-------------------------------------------------------
-
+`` Note Its is behave like string interpolation.
+console.log(`My name is ${name.toUpperCase()} and my age is ${age}`);
+const game = new String('Hello-hc')
+console.log(game)      // [String: 'Hello-hc']
+console.log(game[0])   // H
