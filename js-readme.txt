@@ -5,8 +5,7 @@ DataType : number, string, boolean, null, undefined, object, bigint, symbol (for
 console.log(typeof "");         // To check typeof variable
 console.log(typeof null);      //  Object   
 console.log(typeof undefined) // Object
---------------------------------------------------------------------------------------------------------------
-Value Conversion  
+------------------------------------------ Value Conversion------------------------------------------------  
 let score = "33abc" 
 let valueInNumber = Number(score); 
 console.log(valueInNumber)         // number
@@ -14,10 +13,11 @@ console.log(typeof valueInNumber)  // NaN
 If we try to convert Number such as string then it will return Nan and boolean will return 1 or 0
 Note : anything we add with string will always return string 
 e.g console.log( "1" + 2); // string   console.log( 1 + "2");  // string
----------------------------------------------------------------------------------------------------------
-comparison
+-------------------------------------------- Comparison-----------------------------------------
+
 console.log(null >= 0)  // true due to conversion
 console.log(null == 0)  // false
 console.log("2" == 2)   // true
 console.log("2" === 2)  // false due to strict check
+---------------------------------------------------------------------------------------------------------------------
 
