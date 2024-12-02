@@ -1,4 +1,4 @@
-## Javascript is Synchronous or Asynchronous? 
+### Javascript is Synchronous or Asynchronous? 
 
 # Synchronous JavaScript
 By default, JavaScript code is executed synchronously, meaning each statement is executed one after the other, in the order in which it appears.
@@ -42,7 +42,7 @@ These variables are hoisted but stay in the temporal dead zone untill the initia
 The scope of a const variable is block scope. It can neither be updated or re-declared in any scope.
 It cannot be declared without initialization. It cannot be accessed without initialization, as it cannot be declared without initialization. These variables are hoisted but stays in the temporal dead zone until the initialization.
 
-## What is 'this' keyword in JavaScript?
+### What is 'this' keyword in JavaScript?
 In JavaScript, this keyword refers to the object that is currently executing a function or method.
 When used within a method of an object, this points to that object.
 When used by itself, this points to the global object.
@@ -78,7 +78,7 @@ const obj = {
 };
 obj.greet(); // Output: undefined (if in a browser environment)
 
-## Arrow functions
+### Arrow functions
 
 # function and method 
 
@@ -115,9 +115,9 @@ try {
 }
 
 
-## == and === difference
+### == and === difference
 
-## What is JavaScript Hoisting and understand the examples?
+### What is JavaScript Hoisting and understand the examples?
 Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their containing scope during the compile phase, before the code is executed. 
 This means that variables and functions can be referenced before they are declared in the code, but their values (for variables) are not hoisted—only their declarations are.
 
@@ -169,7 +169,7 @@ greeting("vikas",checkGreeting)
 vikas
 Thank for greeting
 
-## What is meant by promises?
+### What is meant by promises?
 In JavaScript, a promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. 
 Promises provide a cleaner and more structured way to handle asynchronous operations compared to traditional callbacks, addressing issues like callback hell and improving error handling.
 
