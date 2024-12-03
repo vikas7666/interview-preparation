@@ -1,13 +1,10 @@
-## Is JavaScript Synchronous or Asynchronous?
+## Javascript is Synchronous or Asynchronous? 
 
-### Synchronous JavaScript
-By default, JavaScript executes code synchronously, meaning each statement is executed one after the other, in the order they appear.
+# Synchronous JavaScript
+By default, JavaScript code is executed synchronously, meaning each statement is executed one after the other, in the order in which it appears.
 
-### Asynchronous JavaScript
-JavaScript achieves asynchronous behavior using:
-- **Callbacks**
-- **Promises**
-- **Async/Await**
+# Asynchronous JavaScript
+Callbacks , Promises , Async/Await
 
 # How Asynchronous JavaScript Works ?
 JavaScript uses the **event loop**  to handle asynchronous tasks. The event loop allows JavaScript to handle asynchronous operations without blocking the main thread.
@@ -18,70 +15,53 @@ JavaScript uses the **event loop**  to handle asynchronous tasks. The event loop
 **Promises** : Provide a more structured way of handling asynchronous operations, allowing you to chain then() and catch() methods.
 **Async/Await** :  Provides a cleaner syntax for working with promises by using async functions and await expressions, making asynchronous code look synchronous.
 
----
+# What is the difference between null and undefined
+Null : An assignment value that explicitly indicates an empty or non-existent value
+Undefined : A variable that has been declared but has not yet been assigned a value. 
 
-## Difference Between `null` and `undefined`
-- **`null`:** An assignment value indicating an explicitly empty or non-existent value.
-- **`undefined`:** A variable that has been declared but not yet assigned a value.
+# What are undeclared and undefined variables?
+Undeclared : A variable that has not been created
+Undefined : A variable that has been declared but has not yet been assigned a value. 
 
----
+# What are global variables?
+In JavaScript, a global variable is a variable that is declared outside of any function or block scope. A variable that can be accessed from any part of a program.
 
-## Difference Between Undeclared and Undefined Variables
-- **Undeclared Variables:** Variables that are not declared at all.
-- **Undefined Variables:** Variables that are declared but not assigned a value.
+# Difference between var, let and const?
 
----
+# var 
+The scope of a var variable is functional or global scope. It can be updated and re-declared in the same scope.
+It can be declared without initialization. It can be accessed without initialization as its default value is “undefined”.
+These variables are hoisted.
 
-## What Are Global Variables?
-In JavaScript, global variables are declared outside any function or block scope and can be accessed anywhere in the program.
+# let 
+The scope of a let variable is block scope. It can be updated but cannot be re-declared in the same scope.
+It can be declared without initialization. It cannot be accessed without initialization otherwise it will give ‘referenceError’.
+These variables are hoisted but stay in the temporal dead zone untill the initialization.
 
----
+# const
+The scope of a const variable is block scope. It can neither be updated or re-declared in any scope.
+It cannot be declared without initialization. It cannot be accessed without initialization, as it cannot be declared without initialization. These variables are hoisted but stays in the temporal dead zone until the initialization.
 
-## Difference Between `var`, `let`, and `const`
+## What is 'this' keyword in JavaScript?
+In JavaScript, this keyword refers to the object that is currently executing a function or method.
+When used within a method of an object, this points to that object.
+When used by itself, this points to the global object.
+Within a function, this typically points to the global object.
+In a function under strict mode, this becomes undefined.
+During an event, this points to the element that triggered the event.
+Methods such as call(), apply(), and bind() can reassign this to any desired object.
 
-### `var`
-- Scope: Functional or global.
-- Can be updated and re-declared in the same scope.
-- Declared without initialization and initialized to `undefined`.
-- Hoisted with an initial value of `undefined`.
+console.log(this); // In a browser, this refers to the window object
 
-### `let`
-- Scope: Block.
-- Can be updated but not re-declared in the same scope.
-- Declared without initialization but throws `ReferenceError` if accessed before initialization.
-- Hoisted but remains in the **temporal dead zone** until initialized.
+# Inside a Method:  
 
-### `const`
-- Scope: Block.
-- Cannot be updated or re-declared.
-- Must be initialized during declaration.
-- Hoisted but remains in the temporal dead zone until initialized.
-
----
-
-## The `this` Keyword in JavaScript
-
-The `this` keyword refers to the object that is currently executing a function.
-
-### Behavior of `this`:
-1. **Global Scope:** Refers to the global object (e.g., `window` in browsers).
-2. **Inside a Method:** Refers to the object that owns the method.
-3. **Inside a Function:** Refers to the global object (`undefined` in strict mode).
-4. **Arrow Functions:** Inherits `this` from the surrounding lexical context.
-5. **Event Listeners:** Refers to the element that triggered the event.
-6. **Using `call()`, `apply()`, and `bind()`:** Allows explicit assignment of `this`.
-
-**Examples:**
-```js
-console.log(this); // Global scope: window object in browsers
-
-const obj = {
+const person = {
   name: 'Alice',
   greet() {
-    console.log(this.name); // 'this' refers to obj
+    console.log(this.name); // this refers to the person object
   }
 };
-obj.greet(); // Output: Alice
+person.greet(); // Output: Alice
 
 # Inside a Function 
 function show() {
