@@ -154,8 +154,7 @@ function test() {
 test();
 
 # What is Callback
-A callback function is simply a function passed as an argument to another function.
-The callback function is executed after the outer function finishes its execution.
+A callback function is simply a function passed as an argument to another function.The callback function is executed after the outer function finishes its execution.
 Used for asynchronous operations and events.
 
 function greeting(name , callback){
@@ -170,6 +169,7 @@ vikas
 Thank for greeting
 
 ## What is meant by promises?
+![alt text](image.png)
 In JavaScript, a promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. 
 Promises provide a cleaner and more structured way to handle asynchronous operations compared to traditional callbacks, addressing issues like callback hell and improving error handling.
 
@@ -194,6 +194,23 @@ reject: A function to be called when the asynchronous operation fails.
   }
 }); **
 
+// Basic Program
+let checkEvenNumber =  new Promise((resolve, reject)=>{
+    let number = 4;
+    
+    if(number / 2 ==0)
+        resolve('Number is divide successfully')
+    else
+        reject('Number is not divisible')
+    
+})
+
+checkEvenNumber
+.then((message) => console.log(message))
+.catch((message) => console.log(message))
+
+// output Number is not divisible
+
 ## Using Promises: then, catch, and finally
 then(): Handles the resolved value of the promise (success case).
 catch(): Handles errors (rejected promise).
@@ -215,7 +232,7 @@ fetch('https://jsonplaceholder.typicode.com/posts/1')
 
 
 ### Difference between callback and promises
-
+![alt text](image-1.png)
 # Comparison Between Callbacks and Promises
 
 ### Callbacks
@@ -223,7 +240,7 @@ Definition     : A function passed as an argument to another function and execut
 Readability    : Can lead to callback hell (nested, hard-to-read code).
 Error Handling : Errors must be handled manually in each callback, making the code harder to manage.
 Chaining       : Difficult to chain multiple asynchronous operations due to nested callbacks.
-Code Flow	   : Execution flow can become hard to trace due to nested callbacks.
+Code Flow	     : Execution flow can become hard to trace due to nested callbacks.
 Flexibility	   : Limited flexibility; you often need to define error handling for every callback. 
 Return Value   : Callbacks do not return values; you work within the callback function.
 
@@ -232,7 +249,7 @@ Definition     : An object representing the eventual success or failure of an as
 Readability    : Provides a cleaner and more structured way to handle asynchronous code.
 Error Handling : Errors are caught centrally using .catch(), improving error management.
 Chaining       : Easily chain operations using .then() for success and .catch() for errors.
-Code Flow	   : Promises are linear and easier to follow.
+Code Flow	     : Promises are linear and easier to follow.
 Flexibility	   : More powerful, with methods like Promise.all(), Promise.race(), and chaining
 Return Value   : Promises return another promise, enabling chaining of .then() and .catch().
 
@@ -292,6 +309,14 @@ fetchData()
   .then(() => console.log('Data saved successfully'))
   .catch((error) => console.error('Error:', error));
 
+// async function
+async function fetchdata(){
+				const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+				const data = await response.json();
+				console.log(data)
+			}
+
+      fetchdata()
 
 ### What are closures and understand the examples?
 A closure is a function that remembers the variables from its outer scope even after the outer function has finished executing. 
@@ -323,17 +348,17 @@ myClosure(); // Output: "I'm from outer scope"
 
  ## Mutator Methods (Modify the Original Array)
 
- **push()**    : Adds one or more elements to the end of the array.
+ push()        : Adds one or more elements to the end of the array.
  pop()	       : Removes and returns the last element of the array.
  unshift()     : Adds one or more elements to the beginning of the array.
- shift()	   : Removes and returns the first element of the array.
- splice()	   : Adds, removes, or replaces elements in an array.
+ shift()	     : Removes and returns the first element of the array.
+ splice()	     : Adds, removes, or replaces elements in an array.
  reverse()	   : Reverses the order of the elements in the array.
  sort()        : Sorts the elements of the array (default is string comparison).
 
  ## Accessor Methods (Do Not Modify the Original Array)
- concat()	   : Combines two or more arrays into one.
- slice()	   : Returns a shallow copy of a portion of the array.
+ concat()	     : Combines two or more arrays into one.
+ slice()	     : Returns a shallow copy of a portion of the array.
  includes()	   : Checks if an element exists in the array.
  indexOf()	   : Returns the first index of an element in the array.
  lastIndexOf() : Returns the last index of an element in the array.
@@ -350,7 +375,7 @@ myClosure(); // Output: "I'm from outer scope"
  findIndex()   : Returns the index of the first element that satisfies a condition.               => arr.findIndex((x) => x > 2) returns index of first > 2
 
  ## Other Utility Methods
- length()      : Returns the number of elements in an array.	             => arr.length gives the array size.
+ length()      : Returns the number of elements in an array.	               => arr.length gives the array size.
  flat()        : Flattens a nested array into a single array.                => [1, [2, [3]]].flat(2) returns [1, 2, 3].
  flatMap()     : Maps each element, then flattens the result by one level.   => arr.flatMap(x => [x, x*2]).
 
@@ -359,26 +384,26 @@ myClosure(); // Output: "I'm from outer scope"
 length	       : Returns the number of characters in a string.	             => 'hello'.length returns 5.
 includes()	   : Checks if a string contains a specified substring.	         => 'hello'.includes('ll') returns true.
 startsWith()   : Checks if a string starts with a specified substring.       => 'hello'.startsWith('he') returns true.
-endsWith()	   : Checks if a string ends with a specified substring.	     => 'hello'.endsWith('lo') returns true.
-indexOf()	   : Returns the first index of a specified substring.	         => 'hello'.indexOf('l') returns 2.
-lastIndexOf()  : Returns the last index of a specified substring.	         => 'hello'.lastIndexOf('l') returns 3.
+endsWith()	   : Checks if a string ends with a specified substring.	       => 'hello'.endsWith('lo') returns true.
+indexOf()	     : Returns the first index of a specified substring.	         => 'hello'.indexOf('l') returns 2.
+lastIndexOf()  : Returns the last index of a specified substring.	           => 'hello'.lastIndexOf('l') returns 3.
 
 # Transformation Methods
-toUpperCase()	: Converts the string to uppercase.	                             =>'hello'.toUpperCase() returns 'HELLO'.
-toLowerCase()	: Converts the string to lowercase.	                             =>'HELLO'.toLowerCase() returns 'hello'.
+toUpperCase()	  : Converts the string to uppercase.	                             =>'hello'.toUpperCase() returns 'HELLO'.
+toLowerCase()	  : Converts the string to lowercase.	                             =>'HELLO'.toLowerCase() returns 'hello'.
 trim()	        : Removes whitespace from both ends of the string.	             =>' hello '.trim() returns 'hello'.
-replace()	    : Replaces a specified substring with another string.            =>'hello'.replace('l', 'x') returns 'hexlo'.
-replaceAll()	: Replaces all occurrences of a substring.	                     =>'hello'.replaceAll('l', 'x') returns 'hexxo'.
+replace()	      : Replaces a specified substring with another string.            =>'hello'.replace('l', 'x') returns 'hexlo'.
+replaceAll()	  : Replaces all occurrences of a substring.	                     =>'hello'.replaceAll('l', 'x') returns 'hexxo'.
 padStart()	    : Pads the beginning of a string to reach a specified length.    =>'5'.padStart(3, '0') returns '005'.
-padEnd()	    : Pads the end of a string to reach a specified length.	         =>'5'.padEnd(3, '0') returns '500'.
+padEnd()	      : Pads the end of a string to reach a specified length.	         =>'5'.padEnd(3, '0') returns '500'.
 
 # Extraction Methods
-slice()       : Extracts a portion of the string.	                                              =>'hello'.slice(1, 3) returns 'el'.
-substring()	  : Similar to slice(), but does not accept negative indices.	                      =>'hello'.substring(1, 3) returns 'el'.
-substr()	  : Extracts a portion of the string, starting at a position and for a given length.  =>'hello'.substr(1, 3) returns 'ell'.
-charAt()	  : Returns the character at a specified index.	                                      =>'hello'.charAt(1) returns 'e'.
-charCodeAt()  : Returns the Unicode value of the character at a specified index.	              =>'hello'.charCodeAt(1) returns 101.
-split()	      : Splits a string into an array of substrings.	                                  =>'a,b,c'.split(',') returns ['a', 'b', 'c'].
+slice()       : Extracts a portion of the string.	                                                =>'hello'.slice(1, 3) returns 'el'.
+substring()	  : Similar to slice(), but does not accept negative indices.	                        =>'hello'.substring(1, 3) returns 'el'.
+substr()	    : Extracts a portion of the string, starting at a position and for a given length.  =>'hello'.substr(1, 3) returns 'ell'.
+charAt()	    : Returns the character at a specified index.	                                      =>'hello'.charAt(1) returns 'e'.
+charCodeAt()  : Returns the Unicode value of the character at a specified index.	                =>'hello'.charCodeAt(1) returns 101.
+split()	      : Splits a string into an array of substrings.	                                    =>'a,b,c'.split(',') returns ['a', 'b', 'c'].
 
 ## Difference between slice and splice with working examples?
 Both slice() and splice() are methods used to manipulate arrays, but they are quite different in their functionality and use cases.

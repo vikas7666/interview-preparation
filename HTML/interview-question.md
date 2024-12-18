@@ -6,7 +6,8 @@ It uses cookies to store temporary data. Does not allow JavaScript to run in the
 Vector graphics are possible in HTML with the help of various technologies such as VML, Silver-light, Flash, etc.
 Not possible to draw shapes like circle, rectangle, triangle etc. It works with all old browsers.	
 <HTML>,<Body> , and <Head> tags are mandatory while writing a HTML code.
-Older version of HTML are less mobile-friendly. Doctype declaration is too long and complicated.
+Older version of HTML are less mobile-friendly. 
+Doctype declaration is too long and complicated.
 Elements like nav, header were not present. Character encoding is long and complicated.
 It is almost impossible to get true GeoLocation of user with the help of browser. It can not handle inaccurate syntax.
 Being an older version , it is not fast , flexible , and efficient as compared to HTML5.
