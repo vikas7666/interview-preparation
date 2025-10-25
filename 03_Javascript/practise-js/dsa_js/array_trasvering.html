@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Transversing</title>
+</head>
+<body>
+    <script>
+        let arr = [9,52,65,7,89,6,8,0,1,9];
+        // console.log("arr length",arr.length-1)
+        // for(let i = 0; i<arr.length; i++){
+        //     document.write(`Array of ${i} is ${arr[i]} <br>`)
+        // }
+        // let x = 1
+        // document.write(arr[x])
+
+        function getElement(){
+            let elem = document.getElementById('elem').value;
+
+            if(isNaN(elem)){
+                console.log('Please enter valid Number')
+                return false;
+            }else if(elem > arr.length ){
+                console.log('Please enter Between arr length number between');
+                return false;
+            }else if(elem < 0){
+                console.log('Please enter number above 0')
+                return false;
+            }
+            console.log(arr[elem])
+
+        }
+    </script>
+
+    <input type="text" name="" id="elem">
+    <button onclick ="getElement()">Submit</button>
+</body>
+</html>

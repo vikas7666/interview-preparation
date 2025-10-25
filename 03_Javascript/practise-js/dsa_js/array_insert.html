@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Insert</title>
+</head>
+<body>
+    <script>
+        //  let data = [60,30,10,4,6];
+       /*   console.log(data)
+         let position = 2;
+         let newElem = 20;
+         for(let i= data.length - 1; i>= 0; i--){
+           console.log(data[i])
+           if( i >=2){
+            data[i+1] = data[i];
+            if(i == position){
+                data[i] = newElem
+            }
+           }
+         }
+         console.log(data) */
+
+        
+       /*   let data = [60,30,10,4,6];
+         function submit(){
+            let position = parseInt(document.getElementById('position').value) 
+            let newElem = parseInt(document.getElementById('newElem').value)
+                if(isNaN(position) || isNaN(newElem)){
+                    console.log('Please enter valid number between array length');
+                    return;
+                }else if(position < 0 || position > data.length){
+                    console.log('Please enter a valid position within the array bounds.')
+                    return;
+                }
+                for(let i= data.length - 1; i>= position; i--){
+                    data[i + 1] = data[i];
+                }
+                data[position] = newElem;
+                console.log('data',data)
+            } */
+            // same thing can be achive using splice method 
+
+            /* 
+                for e.g 
+                splice :
+                first parameter => position of the item
+                second parameter => delete count if we define delete count it will delete that position
+                third parameter => New Number 
+            */
+            let data =  [2,3,4,5,6,8];
+
+            data.splice(3,0,2000);
+            console.log('data',data) // [2, 3, 4, 2000, 5, 6, 8]
+    </script>
+    <input type="text" name="position" id="position" placeholder="value">
+    <input type="text" name="newElem" id="newElem" placeholder="newElem">
+    <input type="button" value="submit" onclick="submit()">
+</body>
+</html>
