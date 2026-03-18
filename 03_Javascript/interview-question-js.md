@@ -30,18 +30,24 @@ In JavaScript, a global variable is a variable that is declared outside of any f
 # Difference between var, let and const?
 
 # var 
-The scope of a var variable is functional or global scope. It can be updated and re-declared in the same scope.
-It can be declared without initialization. It can be accessed without initialization as its default value is “undefined”.
+The scope of a var variable is functional or global scope.
+It can be updated and re-declared in the same scope.
+It can be declared without initialization.
+It can be accessed without initialization as its default value is “undefined”.
 These variables are hoisted.
 
 # let 
-The scope of a let variable is block scope. It can be updated but cannot be re-declared in the same scope.
-It can be declared without initialization. It cannot be accessed without initialization otherwise it will give ‘referenceError’.
+The scope of a let variable is block scope.
+It can be updated but cannot be re-declared in the same scope.
+It can be declared without initialization. 
+It cannot be accessed without initialization otherwise it will give ‘referenceError’.
 These variables are hoisted but stay in the temporal dead zone untill the initialization.
 
 # const
-The scope of a const variable is block scope. It can neither be updated or re-declared in any scope.
-It cannot be declared without initialization. It cannot be accessed without initialization, as it cannot be declared without initialization. These variables are hoisted but stays in the temporal dead zone until the initialization.
+The scope of a const variable is block scope.
+It can neither be updated or re-declared in any scope.
+It cannot be declared without initialization.
+It cannot be accessed without initialization, as it cannot be declared without initialization. These variables are hoisted but stays in the temporal dead zone until the initialization.
 
 ## What is 'this' keyword in JavaScript?
 In JavaScript, this keyword refers to the object that is currently executing a function or method.
@@ -105,7 +111,8 @@ const greet = function() {
 greet(); 
 
 # Method
-A method is a function that is associated with an object. Methods are functions that are properties of an object and are typically invoked through that object.
+A method is a function that is associated with an object.
+Methods are functions that are properties of an object and are typically invoked through that object.
 const person = {
   name: 'Alice',
   greet: function() {
@@ -212,19 +219,19 @@ executor has parameter => resolve, reject
 }); 
 
 // Basic Program
-let checkEvenNumber =  new Promise((resolve, reject)=>{
-    let number = 4;
-    
-    if(number / 2 ==0)
-        resolve('Number is divide successfully')
-    else
-        reject('Number is not divisible')
-    
-})
+let checkEven = new Promise((resolve, reject) => {
+    let num = 4;
 
-checkEvenNumber
-.then((message) => console.log(message))
-.catch((message) => console.log(message))
+    if (num % 2 === 0) {
+        resolve('Number is even');
+    } else {
+        reject('Number is odd');
+    }
+});
+
+checkEven
+  .then((res) => console.log("Success:", res))
+  .catch((err) => console.log("Error:", err));
 
 // output Number is not divisible
 
@@ -247,6 +254,25 @@ fetch('https://jsonplaceholder.typicode.com/posts/1')
     console.error('There was a problem with the fetch operation:', error);
   });
 
+<!-- 
+// internally how fetch method used 
+function fetch(url) {
+  return new Promise((resolve, reject) => {
+    // Step 1: Create HTTP request
+    // Step 2: Send request over network
+
+    // Step 3: When response arrives
+    resolve(response);
+
+    // Step 4: If network fails
+    reject(error);
+  });
+
+  // So internally it USES:
+  Promise constructor
+  resolve
+  reject
+} -->
 
 ### Difference between callback and promises
 
@@ -328,12 +354,11 @@ fetchData()
 
 // async function
 async function fetchdata(){
-				const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
-				const data = await response.json();
-				console.log(data)
-			}
-
-      fetchdata()
+		const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+		const data = await response.json();
+		console.log(data)
+}
+fetchdata()
 
 ### What are closures and understand the examples?
 A closure is a function that remembers the variables from its outer scope even after the outer function has finished executing. 
@@ -417,7 +442,7 @@ padStart()	    : Pads the beginning of a string to reach a specified length.    
 padEnd()	      : Pads the end of a string to reach a specified length.	         =>'5'.padEnd(3, '0') returns '500'.
 
 # Extraction Methods
-slice()       : Extracts a ****portion** of the string.	                                                =>'hello'.slice(1, 3) returns 'el'.
+slice()       : Extracts a ****portion** of the string.	                                          =>'hello'.slice(1, 3) returns 'el'.
 substring()	  : Similar to slice(), but does not accept negative indices.	                        =>'hello'.substring(1, 3) returns 'el'.
 substr()	    : Extracts a portion of the string, starting at a position and for a given length.  =>'hello'.substr(1, 3) returns 'ell'.
 charAt()	    : Returns the character at a specified index.	                                      =>'hello'.charAt(1) returns 'e'.
@@ -464,7 +489,7 @@ This capability allows functions to be treated as first-class citizens in JavaSc
 
 # Functions Taking Other Functions as Arguments  // Using a callback with forEach()
 const numbers = [1, 2, 3, 4];  
-number.forEach((item) =>{
+numbers.forEach((item) =>{
     console.log(item)
 })
 
@@ -538,6 +563,7 @@ The JavaScript spread operator (...) allows us to quickly copy all or part of an
 const array = [...iterable];
 const object = {...iterable};
 
+// coping array 
 const numbers = [1, 2, 3];
 const newNumbers = [...numbers, 4, 5];
 console.log(newNumbers); // Output: [1, 2, 3, 4, 5]
@@ -570,8 +596,8 @@ let marks = { x: 21, y: -34, z: 47 };
 const { x, y, z } = marks;
 
 console.log(x); // 21
-console.log(y);  //22
-console.log(z);
+console.log(y);  // 22
+console.log(z); // 47
 
 // Object 
 ({ x, y} = { x: 10, y: 20 });
@@ -583,6 +609,9 @@ console.log(y); // 20
 # Call
 The call() method allows you to call a function with a specified this value and arguments provided individually.
 The **first argument to call() sets the this value for the function** being called, and the **remaining arguments are passed to the function as arguments**.
+
+// one line 
+call() lets you run a function with a custom this and pass arguments directly.
 
 function greet(name){
     console.log(`Hello ${name} ! My name is ${this.name}`)
@@ -603,7 +632,8 @@ let numbers = [1, 2];
 console.log(add.apply(null, numbers)); // Output: 3
 
 # bind(); (Bind Method)
-The bind() method returns a new function with a specified this value and any arguments that are passed to it. The bind() method does not call the function immediately but instead returns a new function that can be called later.
+The bind() method returns a new function with a specified this value and any arguments that are passed to it.
+The bind() method does not call the function immediately but instead returns a new function that can be called later.
 
 let person = {
   name: "John",
@@ -663,17 +693,17 @@ Example: Shallow Copy
 const original = { name: "Alice", details: { age: 25 } };
 Ways to Create a Shallow Copy
 
-# Using the Spread Operator (...)
+## Using the Spread Operator (...)
 const copy = { ...original };
 
-# Using Object.assign():
+## Using Object.assign():
 const copy = Object.assign({}, original);
 
-# Using Array.slice() or Array.from() for Arrays
+## Using Array.slice() or Array.from() for Arrays
 const arr = [1, 2, 3];
 const copy = arr.slice();
 
-# A deep copy duplicates all levels of an object. Any nested objects or arrays are fully copied, and the new copy has no references to the original object.
+### A deep copy duplicates all levels of an object. Any nested objects or arrays are fully copied, and the new copy has no references to the original object.
 
 const original = { name: "Alice", details: { age: 25 } };
 const deepCopy = JSON.parse(JSON.stringify(original)); // Deep copy
