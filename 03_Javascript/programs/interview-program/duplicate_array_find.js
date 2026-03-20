@@ -1,19 +1,13 @@
-let arr1 =  ['a','b','a','c','d','a'];
+let arr1 = ['a', 'b', 'a', 'c', 'd', 'a'];
 
-let result = []
-arr1.filter((item, index) =>{
-    console.log(`index of ${item} is : `,arr1.indexOf(item)) // here we get index of each value and 
-        if(arr1.indexOf(item) !== index){   // here we have write a condition whose item value and index is not matching 
-          result.push(item)
-        }
-    
+let duplciate = arr1.filter((item, index) => {
+  return arr1.indexOf(item) != index  // simply chedking a ka index not equal ho bas
 })
 
-console.log("Duplicate",result)
-let UniquesElement  = [... new Set(result)];
+console.log('duplciate', duplciate) // [ 'a', 'a' ] 
 
-console.log('UniquesElement',UniquesElement)
-
+let duplciateSet = [...new Set(duplciate)]
+console.log('duplciateSet', duplciateSet) //[ 'a' ]
 
 //  here we can clearly see a index is 0 every time 
 /* 

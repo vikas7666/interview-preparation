@@ -1,19 +1,19 @@
-let total = 1;
-function factorial(num){
-    for(let i = 1 ; i<=num; i++){
-        total = total * i;
+function factorial(num) {
+    let result = 1;
+    for (let i = 1; i <= num; i++) {
+        result = result * i;
     }
-    console.log('total',total)
+    return result;
 }
-factorial(7) // 5040
+console.log(factorial(7))
 
 // Other Way 
-function factorial(num){
-    let result = 1; 
-    for(let i = num; i > 1; i--){
-       result  *=  i;
+function factorial(num) {
+    let result = 1;
+    for (let i = num; i > 1; i--) {
+        result *= i;
     }
-   return result;
+    return result;
 }
 
 console.log(factorial(5))

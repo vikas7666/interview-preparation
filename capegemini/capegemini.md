@@ -1,12 +1,6 @@
 # Senior Developer Interview Preparation
 ### JavaScript & HTML/CSS Deep Dive
 
----
-
-## JAVASCRIPT
-
----
-
 ### 1. Call Stack in JavaScript
 
 The **call stack** is a LIFO (Last In, First Out) data structure that the JS engine uses to track function execution contexts.
