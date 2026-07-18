@@ -4,63 +4,67 @@
 By default, JavaScript code is executed synchronously, meaning each statement is executed one after the other, in the order in which it appears.
 
 ## Asynchronous JavaScript
-Callbacks , Promises , Async/Await
+* Callbacks
+*  Promises 
+*  Async/Await
 
 ## How Asynchronous JavaScript Works ?
-JavaScript uses the **event loop**  to handle asynchronous tasks. The event loop allows JavaScript to handle asynchronous operations without blocking the main thread.
+JavaScript uses the ***event loop***  to handle asynchronous tasks. The event loop allows JavaScript to handle asynchronous operations without blocking the main thread.
 
-**Non-blocking I/O**   
-**Callbacks**, **Promises**, and **Async/Await**:
+* Non-blocking I/O
+* Callbacks
+* Promises
+* Async/Await
 
 **Callbacks** : Functions passed as arguments to other functions and executed after the task completes (commonly used in older code). </br>
 **Promises** : Provide a more structured way of handling asynchronous operations, allowing you to chain then() and catch() methods.</br>
 **Async/Await** :  Provides a cleaner syntax for working with promises by using async functions and await expressions, making asynchronous code look synchronous.
 
 ## What is the difference between null and undefined
-Null : An assignment value that explicitly indicates an empty or non-existent value.</br>
-Undefined : A variable that has been declared but has not yet been assigned a value. 
+**Null** : An assignment value that explicitly indicates an empty or non-existent value.</br>
+**Undefined** : A variable that has been declared but has not yet been assigned a value. 
 
 ## What are undeclared and undefined variables?
 Undeclared : A variable that has not been created.</br>
 Undefined : A variable that has been declared but has not yet been assigned a value. 
 
 ## What are global variables?
-In JavaScript, a global variable is a variable that is declared outside of any function or block scope. A variable that can be accessed from any part of a program.
+In JavaScript, a global variable is a variable that is declared outside of any **function or block scope**. A variable that can be accessed from any part of a program.
 
 ## Difference between var, let and const?
 
 ### var : 
-The scope of a var variable is functional or global scope.</br>
-It can be updated and re-declared in the same scope.</br>
-It can be declared without initialization.</br>
-It can be accessed without initialization as its default value is “undefined”.</br>
-These variables are hoisted.
+* The scope of a var variable is functional or global scope.</br>
+* It can be updated and re-declared in the same scope.</br>
+* It can be declared without initialization.</br>
+* It can be accessed without initialization as its default value is “undefined”.</br>
+* These variables are hoisted.
 
 ### let :
 The scope of a let variable is block scope.</br>
-It can be updated but cannot be re-declared in the same scope.</br>
-It can be declared without initialization. </br>
-It cannot be accessed without initialization otherwise it will give ‘referenceError’.</br>
-These variables are hoisted but stay in the temporal dead zone untill the initialization.
+* It can be updated but cannot be re-declared in the same scope.</br>
+* It can be declared without initialization. </br>
+* It cannot be accessed without initialization otherwise it will give ‘referenceError’.</br>
+* These variables are hoisted but stay in the temporal dead zone untill the initialization.
 
 ### const :
 The scope of a const variable is block scope.</br>
-It can neither be updated or re-declared in any scope.</br>
-It cannot be declared without initialization.</br>
-It cannot be accessed without initialization, as it cannot be declared without initialization.</br>
-These variables are hoisted but stays in the temporal dead zone until the initialization.
+* It can neither be updated or re-declared in any scope.</br>
+* It cannot be declared without initialization.</br>
+* It cannot be accessed without initialization, as it cannot be declared without initialization.</br>
+* These variables are hoisted but stays in the temporal dead zone until the initialization.
 
 ###  What is 'this' keyword in JavaScript?
-In JavaScript, this keyword refers to the object that is currently executing a function or method.</br>
-When used within a method of an object, this points to that object.</br>
-When used by itself, this points to the global object.</br>
-Within a function, this typically points to the global object.</br>
-In a function under strict mode, this becomes undefined.</br>
-During an event, this points to the element that triggered the event.</br>
-Methods such as call(), apply(), and bind() can reassign this to any desired object.</br>
-
+*  In JavaScript, this keyword refers to the object that is currently executing a function or method.</br>
+*  When used within a method of an object, this points to that object.</br>
+*  When used by itself, this points to the global object.</br>
+*  Within a function, this typically points to the global object.</br>
+*  In a function under strict mode, this becomes undefined.</br>
+*  During an event, this points to the element that triggered the event.</br>
+*  Methods such as call(), apply(), and bind() can reassign this to any desired object.</br>
+```js
 console.log(this); // In a browser, this refers to the window object
-
+```
 ###  Inside a Method: 
 ```js
 const person = {
@@ -72,15 +76,16 @@ const person = {
 person.greet(); // Output: Alice
 ```
 ###  Inside a Function 
-```
+```js
 function show() {
   console.log(this); // In non-strict mode, this refers to the window object
 }
 show();
 ```
-###  Arrow Functions: Arrow functions do not have their own this value. Instead, they inherit this from the surrounding lexical context.
+###  **Arrow Functions**
+Arrow functions do not have their own this value. Instead, they inherit this from the surrounding lexical context.
 
-```
+```js
 const obj = {
   name: 'Bob',
   greet: () => {
@@ -91,7 +96,7 @@ obj.greet(); // Output: undefined (if in a browser environment)
 ```
 
 ###  Arrow fucntion handle this keyword 
-```
+```js
 const obj = {
   name: 'Bob'
 };
@@ -101,11 +106,11 @@ obj.greet = () => {
 obj.greet(); // Output: Bob
 ```
 
-###  function and method 
+##  function and method 
 
-# function
+### Functions ###
 
-```
+```js
 function greet() {
   console.log('Hello, world!');
 }
@@ -113,9 +118,9 @@ function greet() {
 greet();
 ```
 
-## Functions can also be assigned to variables  
+### Functions can also be assigned to variables  
 
-```
+```js
 const greet = function() {
   console.log('Hello!');
 };
@@ -125,9 +130,11 @@ greet();
 
 ## Method
 
-```
+
 A method is a function that is associated with an object.
 Methods are functions that are properties of an object and are typically invoked through that object.
+
+```js
 const person = {
   name: 'Alice',
   greet: function() {
@@ -136,12 +143,13 @@ const person = {
 };
 
 person.greet(); // Output: Hello, Alice!
+
 ```
 
 ## Which keywords are used to handle exceptions in Javascript?
 JavaScript, exceptions are handled using the try, catch, finally, and throw keywords.
 
-```
+```js
 try {
   // Code that may throw an error
   let result = riskyOperation();
@@ -151,20 +159,22 @@ try {
 ## == and === difference
 
 ## What is JavaScript Hoisting and understand the examples?
-Hoisting is a behavior in JavaScript where **variable and function declarations** are moved to the top of their containing scope during the compile phase, before the code is executed. 
-This means that variables and functions can be referenced before they are declared in the code, but their values (for variables) are not hoisted—only their declarations are.
+Hoisting is a behavior in JavaScript where <span style="color:#E02d75;font-weight:bold">variable and function declarations</span> are moved to the top of their containing scope during the compile phase, before the code is executed. </br>
+This means that variables and functions can be referenced before they are declared in the code, but their <span style="color:#E02d75;font-weight:bold">values (for variables) are not hoisted—only their declarations are.</span>
 
 ## Variable Hoisting:
-basically means variable is decalred below but still we get undefined due to hoisting this is applicable to variable and function
+Basically means variable is decalred below but still we get undefined due to hoisting this is applicable to variable and function
+```js
 console.log(x); // Output: undefined here means variable is hoisted but their value not hoisted 
-```
+
 var x = 5;
 console.log(x); // Output: 5
 ```
 
 ## Variable Hoisting (with let and const)
 let and const also hoisted but do not allow accessing the variable before its declaration.
-```
+
+```js
 console.log(y); // ReferenceError: Cannot access 'y' before initialization
 let y = 10;
 ```
@@ -173,7 +183,7 @@ let y = 10;
 Function declarations (using the function keyword) are hoisted in their entirely, meaning both the function's definition and its body are moved to the top.
 
 ## Function Hoisting (with Function Declaration)
-```
+```js
 console.log(greet()); // Output: "Hello!"
 function greet() {
   return "Hello!";
@@ -189,7 +199,7 @@ var sayHello = function() {
 ```
 
 ## Hoisting with let and const in Functions
-```
+```js
 function test() {
   console.log(a); // Output: ReferenceError: Cannot access 'a' before initialization
   let a = 20;
@@ -198,10 +208,11 @@ test();
 ```
 
 ## What is Callback
-A callback function is simply a function passed as an argument to another function.
+A callback function is simply a <span style="color:#E02d75;font-weight:bold">function passed as an argument to another function.</span>
 The callback function is executed after the outer function finishes its execution.
 Used for asynchronous operations and events.
-```
+
+```js
 function greeting(name , callback){
     console.log(name);
     callback()
@@ -216,7 +227,7 @@ Thank for greeting
 
 ## What is meant by promises?
 
-In JavaScript, a promise is an **object** that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. </br>
+In JavaScript, a promise is an <span style="color:#E02d75;font-weight:700">object</span> that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. </br>
 Promises provide a cleaner and more structured way to handle asynchronous operations compared to traditional callbacks, addressing issues like callback hell and improving error handling.
 
 ### A promise has three states:
@@ -224,18 +235,26 @@ Promises provide a cleaner and more structured way to handle asynchronous operat
 * Fulfilled: The operation was successful, and the promise is resolved with a value.
 * Rejected: The operation failed, and the promise is rejected with a reason (error).
 
-A promise is **created using the Promise constructor**, which takes a **single argument: a function called the executor**. 
-The executor function has two parameters:
+A promise is <span style="color:#E02d75;font-weight:bold">created using the Promise constructor</span> which takes a <span style="color:#E02d75;font-weight:bold">single argument: a function called the executor</span>
 
-**resolve** : A function to be called when the asynchronous operation is successful. </br>
-**reject**  : A function to be called when the asynchronous operation fails.
+<span style="color:#E02d75;font-weight:bold">The executor function has two parameters:</span>
 
-conculasion: 
+<span style="color:#ff6a00;font-weight:bold">resolve</span>: A function to be called when the asynchronous operation is successful. </br>
+<span style="color:#ff6a00;font-weight:bold">reject</span>  : A function to be called when the asynchronous operation fails.
+
+<span style="color:#ff6a00;font-weight:bold">Conculasion </span>
 Promise is Object => represents eventual completion of asynchronous operation and resulting value. 
 Promise is created using the Promise constructor which takes a single argument: a function called the executor.
 executor has parameter => resolve, reject
 
-```
+Promise takes ONE function,
+that function receives TWO arguments (resolve, reject)
+
+new Promise(function(resolve, reject) {
+  // your async work
+});
+
+```js
  const myPromise = new Promise((resolve, reject) => {   // created using the Promise constructor and functtion called with resolve and reject 
   let success = true; // Simulating success or failure
 
@@ -244,11 +263,13 @@ executor has parameter => resolve, reject
   } else {
     reject('Operation failed.');
   }
-}); 
+});
 
 ```
-```
-// Basic Program
+
+### Basic Program
+
+```js
 let checkEven = new Promise((resolve, reject) => {
     let num = 4;
 
@@ -268,10 +289,12 @@ checkEven
 ```
 
 ## Using Promises: then, catch, and finally
-then(): Handles the resolved value of the promise (success case).
-catch(): Handles errors (rejected promise).
-finally(): Executes code regardless of whether the promise was fulfilled or rejected.
+<span style="color:#E02d75;font-weight:bold">then()</span>: Handles the resolved value of the promise (success case).</br>
+<span style="color:#E02d75;font-weight:bold">catch()</span>: Handles errors (rejected promise).</br>
+<span style="color:#E02d75;font-weight:bold">finally()</span>: Executes code regardless of whether the promise was fulfilled or rejected.</br>
 
+## Fetch Method
+```js
 fetch('https://jsonplaceholder.typicode.com/posts/1')
 .then((res)=>{
    if (!res.ok) {
@@ -287,8 +310,10 @@ fetch('https://jsonplaceholder.typicode.com/posts/1')
     console.log('err',err)
 })
 
-<!-- 
-// internally how fetch method used 
+```
+### Internally how fetch method used 
+
+```js
 function fetch(url) {
   return new Promise((resolve, reject) => {
     // Step 1: Create HTTP request
@@ -305,31 +330,30 @@ function fetch(url) {
   Promise constructor
   resolve
   reject
-} -->
+} 
+```
 
 ### Difference between callback and promises
 
-# Comparison Between Callbacks and Promises
-
 ### Callbacks
-Definition     : A function passed as an argument to another function and executed after a task is completed.
-Readability    : Can lead to callback hell (nested, hard-to-read code).
-Error Handling : Errors must be handled manually in each callback, making the code harder to manage.
-Chaining       : Difficult to chain multiple asynchronous operations due to nested callbacks.
-Code Flow	     : Execution flow can become hard to trace due to nested callbacks.
-Flexibility	   : Limited flexibility; you often need to define error handling for every callback. 
+Definition     : A function passed as an argument to another function and executed after a task is completed.</br>
+Readability    : Can lead to callback hell (nested, hard-to-read code).</br>
+Error Handling : Errors must be handled manually in each callback, making the code harder to manage.</br>
+Chaining       : Difficult to chain multiple asynchronous operations due to nested callbacks.</br>
+Code Flow	     : Execution flow can become hard to trace due to nested callbacks.</br>
+Flexibility	   : Limited flexibility; you often need to define error handling for every callback. </br>
 Return Value   : Callbacks do not return values; you work within the callback function.
 
 ### Promise
-Definition     : An object representing the eventual success or failure of an asynchronous operation.
-Readability    : Provides a cleaner and more structured way to handle asynchronous code.
-Error Handling : Errors are caught centrally using .catch(), improving error management.
-Chaining       : Easily chain operations using .then() for success and .catch() for errors.
-Code Flow	     : Promises are linear and easier to follow.
-Flexibility	   : More powerful, with methods like Promise.all(), Promise.race(), and chaining
+Definition     : An object representing the eventual success or failure of an asynchronous operation.</br>
+Readability    : Provides a cleaner and more structured way to handle asynchronous code.</br>
+Error Handling : Errors are caught centrally using .catch(), improving error management.</br>
+Chaining       : Easily chain operations using .then() for success and .catch() for errors.</br>
+Code Flow	     : Promises are linear and easier to follow.</br>
+Flexibility	   : More powerful, with methods like Promise.all(), Promise.race(), and chaining</br>
 Return Value   : Promises return another promise, enabling chaining of .then() and .catch().
 
-
+```js
 function fetchData(callback) {
   setTimeout(() => {
     const data = 'Fetched data';
@@ -344,10 +368,10 @@ fetchData((error, data) => {
     console.log(data); // Output: Fetched data
   }
 });
-
+```
 
 ### Issues with Callbacks:** Callback hell
-
+```js
 fetchData((error, data) => {
   if (error) return console.error(error);
   processData(data, (err, result) => {
@@ -358,8 +382,9 @@ fetchData((error, data) => {
     });
   });
 });
-
+```
 ### Promsie 
+```
 function fetchData() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -377,15 +402,20 @@ fetchData()
     console.error('Error:', error);
   });
 
+```
+
 ### Advantages of Promises: Chaining
 
+```js
 fetchData()
   .then((data) => processData(data))
   .then((result) => saveData(result))
   .then(() => console.log('Data saved successfully'))
   .catch((error) => console.error('Error:', error));
+```
+### async function
 
-// async function
+```js
 async function fetchdata(){
 		const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
 		const data = await response.json();
@@ -393,23 +423,25 @@ async function fetchdata(){
 }
 fetchdata()
 
+``` 
 ### What are closures and understand the examples?
-A closure is a function that remembers the variables from its outer scope even after the outer function has finished executing. 
-In other words, a closure allows a function to "close over" its environment and retain access to variables from the outer function.
-When a function is created inside another function, it forms a closure. 
-The inner function "remembers" the variables declared in its outer function, even after the outer function has returned.
+* A closure is a function that remembers the variables from its outer scope even after the outer function has finished executing. </br>
+* In other words, a closure allows a function to "close over" its environment and retain access to variables from the outer function.</br>
+* When a function is created inside another function, it forms a closure. </br>
+* The inner function "remembers" the variables declared in its outer * function, even after the outer function has returned.</br>
 
-Why Are Closures Useful?
+### Why Are Closures Useful?
 * Data encapsulation:  Protecting data from being accessed or modified directly.
 * Creating private variables.
 * Building factories or currying.
 * Event handling or asynchronous programming.
 
-```
+```js
 function outerFunction() {
   let outerVariable = "I'm from outer scope";
 
   function innerFunction() {
+    outerVariable = 'hello'
     console.log(outerVariable); // Accessing outerVariable from inner function
   }
 
@@ -424,111 +456,317 @@ myClosure(); // Output: "I'm from outer scope"
 
  ## Array method
 
- ## Mutator Methods (Modify the Original Array)
+ ### Mutator Methods (Modify the Original Array)
 
- push()        : Adds one or more elements to the end of the array.           [a,b,newElement]
- pop()	       : Removes and returns the last element of the array.           [a,b,*]
- unshift()     : Adds one or more elements to the beginning of the array.     [newElement]
- shift()	     : Removes and returns the first element of the array.          [newElement]
- splice()	     : Adds, removes, or replaces elements in an array.
- reverse()	   : Reverses the order of the elements in the array.
- sort()        : Sorts the elements of the array (default is string comparison).
+ push()        : Adds one or more elements to the end of the array.           [a,b,newElement] </br>
+ pop()	       : Removes and returns the last element of the array.           [a,b,*]            </br>
+ unshift()     : Adds one or more elements to the beginning of the array.     [newElement]   </br>
+ shift()	     : Removes and returns the first element of the array.          [newElement]</br>
+ splice()	     : Adds, removes, or replaces elements in an array.</br>
+ reverse()	   : Reverses the order of the elements in the array.</br>
+ sort()        : Sorts the elements of the array (default is string comparison).</br>
 
  ## Accessor Methods (Do Not Modify the Original Array)
- concat()	     : Combines two or more arrays into one.
- slice()	     : Returns a shallow copy of a portion of the array.
- includes()	   : Checks if an element exists in the array.
- indexOf()	   : Returns the first index of an element in the array.
- lastIndexOf() : Returns the last index of an element in the array.
- join()	       : Joins all elements of an array into a string.
+ concat()	     : Combines two or more arrays into one.</br>
+ slice()	     : Returns a shallow copy of a portion of the array.</br>
+ includes()	   : Checks if an element exists in the array.</br>
+ indexOf()	   : Returns the first index of an element in the array.</br>
+ lastIndexOf() : Returns the last index of an element in the array.</br>
+ join()	       : Joins all elements of an array into a string.</br>
 
- # Iteration Methods
- forEach()     : Executes a function for **each** array element.                                     => arr.forEach((x) => console.log(x)) prints all elements.
- map()         : Creates a **new array** with results of a function applied to **each** element.     => arr.map((x) => x * 2)  doubles all elements.
- filter()      : Creates a **new array** with elements **that** pass the test in a function.             => arr.filter((x) => x > 2) returns elements greater than 2       
- reduce()      : Reduces the array to a **single** value by applying a function.                     => arr.reduce((sum, x) => sum + x) sums the elements.
- some()        : Tests if **at least one** element passes the test in a function.                    => arr.some((x) => x > 2) checks if any element is > 2.
- every()       : Tests if **all elements pass the test** in a function.                              => arr.every((x) => x > 0) checks if all elements are > 0.
- find()        : Returns the **first** element that satisfies a condition.                           => arr.find((x) => x > 2) finds the first element > 2.
- findIndex()   : Returns the **index of the first element** that satisfies a condition.              => arr.findIndex((x) => x > 2) returns index of first > 2
+# Iteration Methods
 
- ## Other Utility Methods
- length()      : Returns the **number of elements** in an array.	               => arr.length gives the array size.
- flat()        : Flattens a nested array into a single array.                    => [1, [2, [3]]].flat(2) returns [1, 2, 3].
- flatMap()     : Maps each element, then flattens the result by one level.       => arr.flatMap(x => [x, x*2]).
+# Iteration Methods
 
+<span style="color:#E02d75;font-weight:bold">forEach()</span> : Executes a function for **each** array element.  
+```js
+arr.forEach((x) => console.log(x)) // prints all elements.
+```
 
- # String Methods
-length	       : Returns the number of characters in a string.	                   => 'hello'.length returns 5.
-includes()	   : Checks if a string **contains** a specified substring.	           => 'hello'.includes('ll') returns true.
-startsWith()   : Checks if a string starts with a specified substring.             => 'hello'.startsWith('he') returns true.
-endsWith()	   : Checks if a string ends with a specified substring.	             => 'hello'.endsWith('lo') returns true.
-indexOf()	     : Returns the **first index** of a specified substring.	           => 'hello'.indexOf('l') returns 2.
-lastIndexOf()  : Returns the last index of a specified substring.	                 => 'hello'.lastIndexOf('l') returns 3.
+<span style="color:#E02d75;font-weight:bold">map()</span> : Creates a **new array** with results of a function applied to **each** element.  
+```js
+arr.map((x) => x * 2) // doubles all elements.
+```
+
+<span style="color:#E02d75;font-weight:bold">filter()</span> : Creates a **new array** with elements **that** pass the test in a function.  
+```js
+arr.filter((x) => x > 2) // returns elements greater than 2.
+```
+
+<span style="color:#E02d75;font-weight:bold">reduce()</span> : Reduces the array to a **single** value by applying a function.  
+```js
+arr.reduce((sum, x) => sum + x) // sums the elements.
+```
+
+<span style="color:#E02d75;font-weight:bold">some()</span> : Tests if **at least one** element passes the test in a function.  
+```js
+arr.some((x) => x > 2) // checks if any element is > 2.
+```
+
+<span style="color:#E02d75;font-weight:bold">every()</span> : Tests if **all elements pass the test** in a function.  
+```js
+arr.every((x) => x > 0) // checks if all elements are > 0.
+```
+
+<span style="color:#E02d75;font-weight:bold">find()</span> : Returns the **first** element that satisfies a condition.  
+```js
+arr.find((x) => x > 2) // finds the first element > 2.
+```
+
+<span style="color:#E02d75;font-weight:bold">findIndex()</span> : Returns the **index of the first element** that satisfies a condition.  
+```js
+arr.findIndex((x) => x > 2) // returns index of first > 2.
+```
+
+---
+
+## Other Utility Methods
+
+<span style="color:#E02d75;font-weight:bold">length</span> : Returns the **number of elements** in an array.  
+```js
+arr.length // gives the array size.
+```
+
+<span style="color:#E02d75;font-weight:bold">flat()</span> : Flattens a nested array into a single array.  
+```js
+[1, [2, [3]]].flat(2) // returns [1, 2, 3].
+```
+
+<span style="color:#E02d75;font-weight:bold">flatMap()</span> : Maps each element, then flattens the result by one level.  
+```js
+arr.flatMap(x => [x, x * 2])
+```
+
+---
+
+# String Methods
+
+<span style="color:#E02d75;font-weight:bold">length</span> : Returns the number of characters in a string.  
+```js
+'hello'.length // returns 5.
+```
+
+<span style="color:#E02d75;font-weight:bold">includes()</span> : Checks if a string **contains** a specified substring.  
+```js
+'hello'.includes('ll') // returns true.
+```
+
+<span style="color:#E02d75;font-weight:bold">startsWith()</span> : Checks if a string starts with a specified substring.  
+```js
+'hello'.startsWith('he') // returns true.
+```
+
+<span style="color:#E02d75;font-weight:bold">endsWith()</span> : Checks if a string ends with a specified substring.  
+```js
+'hello'.endsWith('lo') // returns true.
+```
+
+<span style="color:#E02d75;font-weight:bold">indexOf()</span> : Returns the **first index** of a specified substring.  
+```js
+'hello'.indexOf('l') // returns 2.
+```
+
+<span style="color:#E02d75;font-weight:bold">lastIndexOf()</span> : Returns the last index of a specified substring.  
+```js
+'hello'.lastIndexOf('l') // returns 3.
+```
 
 # Transformation Methods
-toUpperCase()	  : Converts the string to uppercase.	                             =>'hello'.toUpperCase() returns 'HELLO'.
-toLowerCase()	  : Converts the string to lowercase.	                             =>'HELLO'.toLowerCase() returns 'hello'.
-trim()	        : Removes whitespace from both ends of the string.	             =>' hello '.trim() returns 'hello'.
-replace()	      : Replaces a specified substring with another string.            =>'hello'.replace('l', 'x') returns 'hexlo'.
-replaceAll()	  : Replaces all occurrences of a substring.	                     =>'hello'.replaceAll('l', 'x') returns 'hexxo'.
-padStart()	    : Pads the beginning of a string to reach a specified length.    =>'5'.padStart(3, '0') returns '005'.
-padEnd()	      : Pads the end of a string to reach a specified length.	         =>'5'.padEnd(3, '0') returns '500'.
+
+<span style="color:#E02d75;font-weight:bold">toUpperCase()</span> : Converts the string to uppercase.  
+```js
+'hello'.toUpperCase() // returns 'HELLO'.
+```
+
+<span style="color:#E02d75;font-weight:bold">toLowerCase()</span> : Converts the string to lowercase.  
+```js
+'HELLO'.toLowerCase() // returns 'hello'.
+```
+
+<span style="color:#E02d75;font-weight:bold">trim()</span> : Removes whitespace from both ends of the string.  
+```js
+' hello '.trim() // returns 'hello'.
+```
+
+<span style="color:#E02d75;font-weight:bold">replace()</span> : Replaces a specified substring with another string.  
+```js
+'hello'.replace('l', 'x') // returns 'hexlo'.
+```
+
+<span style="color:#E02d75;font-weight:bold">replaceAll()</span> : Replaces all occurrences of a substring.  
+```js
+'hello'.replaceAll('l', 'x') // returns 'hexxo'.
+```
+
+<span style="color:#E02d75;font-weight:bold">padStart()</span> : Pads the beginning of a string to reach a specified length.  
+```js
+'5'.padStart(3, '0') // returns '005'.
+```
+
+<span style="color:#E02d75;font-weight:bold">padEnd()</span> : Pads the end of a string to reach a specified length.  
+```js
+'5'.padEnd(3, '0') // returns '500'.
+```
+
+---
 
 # Extraction Methods
-slice()       : Extracts a ****portion** of the string.	                                          =>'hello'.slice(1, 3) returns 'el'.
-substring()	  : Similar to slice(), but does not accept negative indices.	                        =>'hello'.substring(1, 3) returns 'el'.
-substr()	    : Extracts a portion of the string, starting at a position and for a given length.  =>'hello'.substr(1, 3) returns 'ell'.
-charAt()	    : Returns the character at a specified index.	                                      =>'hello'.charAt(1) returns 'e'.
-charCodeAt()  : Returns the Unicode value of the character at a specified index.	                =>'hello'.charCodeAt(1) returns 101.
-split()	      : Splits a string into an array of substrings.	                                    =>'a,b,c'.split(',') returns ['a', 'b', 'c'].
 
-## Difference between slice and splice with working examples?
-Both slice() and splice() are methods used to manipulate arrays, but they are quite different in their functionality and use cases.
+<span style="color:#E02d75;font-weight:bold">slice()</span> : Extracts a **portion** of the string.  
+```js
+'hello'.slice(1, 3) // returns 'el'.
+```
 
-slice()
-**Does not modify the original array** (non-destructive).
-Returns a **shallow copy** of a portion of the array.
-Accepts two arguments: start (inclusive) and end (exclusive). If the end is omitted, it slices up to the end of the array.
-Can handle negative indices (counts from the end of the array).
+<span style="color:#E02d75;font-weight:bold">substring()</span> : Similar to slice(), but does not accept negative indices.  
+```js
+'hello'.substring(1, 3) // returns 'el'.
+```
 
+<span style="color:#E02d75;font-weight:bold">substr()</span> : Extracts a portion of the string, starting at a position and for a given length.  
+```js
+'hello'.substr(1, 3) // returns 'ell'.
+```
+
+<span style="color:#E02d75;font-weight:bold">charAt()</span> : Returns the character at a specified index.  
+```js
+'hello'.charAt(1) // returns 'e'.
+```
+
+<span style="color:#E02d75;font-weight:bold">charCodeAt()</span> : Returns the Unicode value of the character at a specified index.  
+```js
+'hello'.charCodeAt(1) // returns 101.
+```
+
+<span style="color:#E02d75;font-weight:bold">split()</span> : Splits a string into an array of substrings.  
+```js
+'a,b,c'.split(',') // returns ['a', 'b', 'c'].
+```
+
+## Difference between <span style="color:#E02d75;font-weight:bold">slice()</span> and <span style="color:#E02d75;font-weight:bold">splice()</span>
+
+Both methods are used with arrays, but they behave very differently.
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">slice()</span>
+
+**Key Points:**
+- ✅ Does **NOT modify** the original array (non-destructive)
+- ✅ Returns a **shallow copy**
+- ✅ Uses: `start (inclusive)` and `end (exclusive)`
+- ✅ Supports **negative indices**
+
+```js
 array.slice(start, end);
+```
 
+**Example:**
+```js
 const fruits = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
 
-const sliced = fruits.slice(1, 3); // Extracts elements from index 1 to 2
-console.log(sliced); // Output: ['banana', 'cherry']
-console.log(fruits); // Original array is unchanged: ['apple', 'banana', 'cherry', 'date', 'elderberry']
+const sliced = fruits.slice(1, 3);
+console.log(sliced);  // ['banana', 'cherry']
+console.log(fruits);  // ['apple', 'banana', 'cherry', 'date', 'elderberry']
+```
 
-With Negative Indices:
-const slicedNegative = fruits.slice(-3, -1); // Extracts from the 3rd-last to 2nd-last element
-console.log(slicedNegative); // Output: ['cherry', 'date']
+**With Negative Indices:**
+```js
+const slicedNegative = fruits.slice(-3, -1);
+console.log(slicedNegative); // ['cherry', 'date']
+```
 
-splice()
-**Modifies the original array** (destructive)
-Used to add, remove, or replace elements in an array.
+👉 Think of `slice()` as **copying a portion** without touching the original array.
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">splice()</span>
+
+**Key Points:**
+- ❌ **Modifies** the original array (destructive)
+- ✅ Can **add, remove, or replace** elements
+- ✅ Returns the **removed elements**
+
+```js
 array.splice(start, deleteCount, ...itemsToAdd);
-Accepts three arguments: start, deleteCount, itemsToAdd
+```
 
-array.splice(start, deleteCount, ...itemsToAdd);
-
+**Example (Remove Elements):**
+```js
 const fruits = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
-const removed = fruits.splice(1, 2); // Removes 2 elements starting at index 1
-console.log(removed); // Output: ['banana', 'cherry']
-console.log(fruits); // Modified array: ['apple', 'date', 'elderberry']
 
-## What are higher order functions?
-Takes one or more functions as arguments, or Returns a function as its result.
-This capability allows functions to be treated as first-class citizens in JavaScript, meaning functions can be passed around like any other value.
+const removed = fruits.splice(1, 2);
+console.log(removed); // ['banana', 'cherry']
+console.log(fruits);  // ['apple', 'date', 'elderberry']
+```
 
-# Functions Taking Other Functions as Arguments  // Using a callback with forEach()
-const numbers = [1, 2, 3, 4];  
-numbers.forEach((item) =>{
-    console.log(item)
-})
+**Example (Add Elements):**
+```js
+const fruits = ['apple', 'banana', 'cherry'];
 
-# Functions Returning Functions
+fruits.splice(1, 0, 'mango');
+console.log(fruits); // ['apple', 'mango', 'banana', 'cherry']
+```
 
+**Example (Replace Elements):**
+```js
+const fruits = ['apple', 'banana', 'cherry'];
+
+fruits.splice(1, 1, 'orange');
+console.log(fruits); // ['apple', 'orange', 'cherry']
+```
+
+👉 Think of `splice()` as **editing the original array in-place**.
+
+---
+
+### 🔥 Quick Comparison
+
+| Feature            | slice()                  | splice()                  |
+|------------------|--------------------------|---------------------------|
+| Modifies original| ❌ No                    | ✅ Yes                    |
+| Returns          | New array                | Removed elements          |
+| Use case         | Copy / extract           | Add / remove / replace    |
+| Negative index   | ✅ Supported             | ✅ Supported              |
+
+---
+
+### 🧠 Easy Way to Remember
+
+- **slice → "S" for Safe (no change)**
+- **splice → "P" for Perform changes**
+
+## <span style="color:#E02d75;font-weight:bold">Higher-Order Functions</span>
+
+A **higher-order function** is a function that:
+- ✅ Takes **one or more functions as arguments**, OR
+- ✅ **Returns a function** as its result  
+
+👉 In JavaScript, functions are **first-class citizens**, meaning they can be:
+- Stored in variables  
+- Passed as arguments  
+- Returned from other functions  
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">1. Functions Taking Other Functions as Arguments</span>
+
+(Using a callback with `forEach()`)
+
+```js
+const numbers = [1, 2, 3, 4];
+
+numbers.forEach((item) => {
+  console.log(item);
+});
+```
+
+👉 Here, the callback function `(item) => {...}` is passed into `forEach()`.
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">2. Functions Returning Functions</span>
+
+```js
 function createMultiplier(multiplier) {
   return function (num) {
     return num * multiplier;
@@ -536,50 +774,142 @@ function createMultiplier(multiplier) {
 }
 
 const double = createMultiplier(2);
-console.log(double(5));  // 
+console.log(double(5)); // 10
+```
 
-# Common Built-In Higher-Order Functions in JavaScript
+👉 `createMultiplier()` returns a new function customized with `multiplier`.
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">Common Built-In Higher-Order Functions</span>
+
+```js
 const numbers = [1, 2, 3, 4];
-map()     => const squared = numbers.map((num) => num * num);
-filter()  => const even = numbers.filter((num) => num % 2 === 0);
-reduce()  => const sum = numbers.reduce((total, num) => total + num, 0);
-sort()    => const sorted = numbers.sort((a, b) => a - b);
 
-Benefits of Higher-Order Functions
-Code Reusability: They promote writing reusable, modular code.
-Abstraction: Simplifies complex logic by abstracting repetitive tasks.
+const squared = numbers.map((num) => num * num);
+const even = numbers.filter((num) => num % 2 === 0);
+const sum = numbers.reduce((total, num) => total + num, 0);
+const sorted = numbers.sort((a, b) => a - b);
+```
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">Benefits of Higher-Order Functions</span>
+
+- **Code Reusability** → Write once, use multiple times  
+- **Abstraction** → Hide complex logic behind simple functions  
+- **Readability** → Cleaner and more expressive code  
+- **Functional Style** → Encourages declarative programming  
+
+---
+
+### 🧠 Easy Way to Remember
+
+- Higher-order function = **Function + Function**
+- Either:
+  - Takes a function  
+  - Returns a function  
+  - Or both 🚀
 Improves Readability: Functional programming patterns like map, filter, and reduce make code concise and expressive.
 
-# How to empty an array?
+## <span style="color:#E02d75;font-weight:bold">How to Empty an Array</span>
 
-Assign a New Empty Array
+There are multiple ways to clear an array in JavaScript. Each method behaves slightly differently.
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">1. Assign a New Empty Array</span>
+
+```js
 let arr = [1, 2, 3, 4];
 arr = [];
+```
 
-Set the Array's Length to 0
+👉 Reassigns `arr` to a new empty array.  
+⚠️ Does **not affect other references** to the original array.
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">2. Set the Array's Length to 0</span>
+
+```js
+let arr = [1, 2, 3, 4];
 arr.length = 0;
+```
 
-Use splice() to Remove All Elements
+👉 Clears the array **in-place**.  
+✅ Affects all references to the same array.
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">3. Use splice() to Remove All Elements</span>
+
+```js
+let arr = [1, 2, 3, 4];
 arr.splice(0, arr.length);
+```
 
-Use a Loop to Pop Elements
+👉 Removes all elements from index `0` to end.  
+✅ Modifies the original array.
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">4. Use pop() in a Loop</span>
+
+```js
+let arr = [1, 2, 3, 4];
+
 while (arr.length > 0) {
   arr.pop();
 }
+```
 
-Use shift() in a Loop
+👉 Removes elements one by one from the end.
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">5. Use shift() in a Loop</span>
+
+```js
+let arr = [1, 2, 3, 4];
+
 while (arr.length > 0) {
   arr.shift();
 }
+```
 
+👉 Removes elements one by one from the beginning.  
+⚠️ Less efficient than `pop()`.
+
+---
+
+### 🔥 Quick Comparison
+
+| Method            | Modifies Original | Efficient | Notes                          |
+|------------------|------------------|----------|--------------------------------|
+| `arr = []`       | ❌ No             | ✅ Yes   | Breaks references              |
+| `arr.length = 0` | ✅ Yes            | ✅ Best  | Most commonly used             |
+| `splice()`       | ✅ Yes            | ✅ Good  | Flexible                       |
+| `pop()` loop     | ✅ Yes            | ⚠️ Medium| Removes from end               |
+| `shift()` loop   | ✅ Yes            | ❌ Slow  | Avoid for large arrays         |
+
+---
+
+### 🧠 Pro Tip
+
+- Use **`arr.length = 0`** when you want to clear the same array reference.
+- Use **`arr = []`** when you don’t care about existing references.
 # Rest parameters and spread operators?
 
-# Rest parameters
-Rest parameters allow you to collect **multiple arguments** into a **single array**. It is useful when a function takes a variable number of arguments.
+# <span style="color:#E02d75;font-weight:bold">Rest Parameters</span>
 
-The rest parameter syntax allows a **function to accept an indefinite number of arguments** as an array
+Rest parameters allow you to collect **multiple arguments** into a **single array**.  
+They are useful when a function accepts a **variable number of arguments**.
 
-function sum(...theArgs) {  // here theArgs can collect n number of arguments
+👉 Syntax uses `...` (three dots)
+
+```js
+function sum(...theArgs) { // collects all arguments into an array
   let total = 0;
   for (const arg of theArgs) {
     total += arg;
@@ -587,98 +917,309 @@ function sum(...theArgs) {  // here theArgs can collect n number of arguments
   return total;
 }
 
-console.log(sum(1, 2, 3));
-// Expected output: 6
+console.log(sum(1, 2, 3)); // Expected output: 6
+```
 
-# Spread Operator (... for unpacking)
+👉 `theArgs` becomes an array: `[1, 2, 3]`
 
-The JavaScript spread operator (...) allows us to quickly copy all or part of an existing array or object into another array or object.
+---
 
+# <span style="color:#E02d75;font-weight:bold">Spread Operator (...)</span>
+
+The spread operator allows you to **unpack elements** from arrays or objects.
+
+👉 It is used to **copy, merge, or expand** data.
+
+```js
 const array = [...iterable];
-const object = {...iterable};
+const object = { ...iterable };
+```
 
-// coping array 
+---
+
+### <span style="color:#E02d75;font-weight:bold">Examples</span>
+
+**Copying & Expanding an Array**
+```js
 const numbers = [1, 2, 3];
 const newNumbers = [...numbers, 4, 5];
-console.log(newNumbers); // Output: [1, 2, 3, 4, 5]
 
+console.log(newNumbers); // [1, 2, 3, 4, 5]
+```
+
+**Converting String to Array**
+```js
 const word = 'hello';
 const letters = [...word];
-console.log(letters); // Output: ['h', 'e', 'l', 'l', 'o']
 
-## When to Use
-Use rest parameters when you want to handle a dynamic number of arguments in a function.
-Use spread operators when you want to combine, clone, or pass elements of an iterable into another context.
+console.log(letters); // ['h', 'e', 'l', 'l', 'o']
+```
 
-## Destructuring
+---
 
-Destructuring Assignment is a JavaScript expression that allows to unpack of values from arrays, or properties from objects, into distinct variables data can be extracted from arrays, objects, and nested objects, and assigned to variables.
+## <span style="color:#E02d75;font-weight:bold">When to Use</span>
 
+- ✅ Use **rest parameters** when:
+  - You want a function to accept **any number of arguments**
+
+- ✅ Use **spread operator** when:
+  - You want to **copy** arrays/objects  
+  - You want to **merge** data  
+  - You want to **expand/unpack** elements  
+
+---
+
+### 🔥 Key Difference
+
+| Feature          | Rest Parameters (`...`)       | Spread Operator (`...`)        |
+|------------------|------------------------------|--------------------------------|
+| Purpose          | Collect values               | Expand values                  |
+| Used in          | Function parameters          | Arrays / Objects / Calls       |
+| Output           | Array                        | Individual elements            |
+
+---
+
+### 🧠 Easy Way to Remember
+
+- **Rest → "gather" (collect into array)**
+- **Spread → "scatter" (expand values)**
+
+## <span style="color:#E02d75;font-weight:bold">Destructuring</span>
+
+Destructuring is a JavaScript expression that allows you to **unpack values** from arrays or **extract properties** from objects into **separate variables**.
+
+👉 It makes code cleaner and more readable.
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">Array Destructuring</span>
+
+**Old Way:**
+```js
 const vehicles = ['mustang', 'f-150', 'expedition'];
 
-// old way
 const car = vehicles[0];
 const truck = vehicles[1];
 const suv = vehicles[2];
+```
 
-<!-- With destructuring: -->
-
+**With Destructuring:**
+```js
 const vehicles = ['mustang', 'f-150', 'expedition'];
-const [car, truck, suv] = vehicles;
 
+const [car, truck, suv] = vehicles;
+```
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">Object Destructuring</span>
+
+```js
 let marks = { x: 21, y: -34, z: 47 };
+
 const { x, y, z } = marks;
 
 console.log(x); // 21
-console.log(y);  // 22
+console.log(y); // -34
 console.log(z); // 47
+```
 
-// Object 
-({ x, y} = { x: 10, y: 20 });
+---
+
+### <span style="color:#E02d75;font-weight:bold">Reassigning Variables with Destructuring</span>
+
+```js
+let x, y;
+
+({ x, y } = { x: 10, y: 20 });
+
 console.log(x); // 10
 console.log(y); // 20
+```
 
-## Difference between call and apply
+👉 Parentheses `()` are required when destructuring **without declaration**.
 
-# Call
-The call() method allows you to call a function with a specified this value and arguments provided individually.
-The **first argument to call() sets the this value for the function** being called, and the **remaining arguments are passed to the function as arguments**.
+---
 
-// one line 
-call() lets you run a function with a custom this and pass arguments directly.
+### 🔥 Key Points
 
-function greet(name){
-    console.log(`Hello ${name} ! My name is ${this.name}`)
+- Works with **arrays and objects**
+- Order matters in **arrays**
+- Property names matter in **objects**
+- Can be used for **clean variable assignment**
+
+---
+
+### 🧠 Easy Way to Remember
+
+- **Destructuring = unpacking data quickly**
+
+## <span style="color:#E02d75;font-weight:bold">Difference between call(), apply(), and bind()</span>
+
+These methods are used to control the value of **`this`** in JavaScript functions.
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">call()</span>
+
+The `call()` method allows you to **invoke a function immediately** with a specified `this` value and **arguments passed individually**.
+
+👉 First argument → sets `this`  
+👉 Remaining arguments → passed one by one 
+
+```js
+let obj1 = {
+    name : 'vikas',
+    surname: 'shukla',
+    greet: function(nativePlace ="Native place not given", country="India"){ // default parameter
+        return `${this.name}  ${this.surname} ${nativePlace} ${country} `
+    }
 }
+
+let obj2 = {
+    name : 'shyam',
+    surname : 'Bihari'
+}
+
+console.log(obj1.greet()) // normal function call
+console.log(obj1.greet.call(obj2, 'Pureswan', 'India')) // this set obj2 as first arguments 
+console.log(obj1.greet.apply(obj2, ['Pureswan', 'India'])) // apply accept as a array
+
+let result = obj1.greet.bind(obj2, 'Pureswan', 'India') // bind (same as call method)
+console.log('result',result())
+
+
+```
+```js
+function greet(name) {
+  console.log(`Hello ${name}! My name is ${this.name}`);
+}
+
 let person = {
   name: "John"
 };
-greet.call(person, "Alice"); // Output: Hello, Alice! My name is John.
 
-# apply()
-The apply() method is similar to the call() method, but it takes an array of arguments instead of individual arguments. 
-The **first argument to apply() sets the this value for the function being called**, and the **second argument is an array of arguments to pass to the function**.
+greet.call(person, "Alice");  // first arguments set the this ("first arguments => object and 2nd alice )
+// Output: Hello Alice! My name is John
+```
 
+👉 **One-line:** `call()` runs a function with custom `this` and direct arguments.
+
+---
+
+```js
+const person = {
+  name: "Alice",
+  greet: function(greeting, punctuation) {
+    console.log(`${greeting}, my name is ${this.name}${punctuation}`);
+  }
+};
+
+const person2 = { name: "Bob" };
+
+// Normal call
+person.greet("Hi", "!");        // Hi, my name is Alice!
+
+// Using call() to borrow the method
+person.greet.call(person2, "Hello", "!!!");  
+// Output: Hello, my name is Bob!!!
+
+
+```
+
+### <span style="color:#E02d75;font-weight:bold">apply()</span>
+
+The `apply()` method is similar to `call()`, but it takes **arguments as an array**.
+
+👉 First argument → sets `this`  
+👉 Second argument → array of arguments  
+
+```js
 function add(a, b) {
   return a + b;
 }
+
 let numbers = [1, 2];
+
 console.log(add.apply(null, numbers)); // Output: 3
+```
 
-# bind(); (Bind Method)
-The bind() method returns a new function with a specified this value and any arguments that are passed to it.
-The bind() method does not call the function immediately but instead returns a new function that can be called later.
+```js
+const numbers = [5, 2, 9, 1, 7];
 
+// Old way (before spread operator)
+console.log(Math.max.apply(null, numbers));   // 9
+
+// Modern way (easier)
+console.log(Math.max(...numbers));            // 9
+```
+
+👉 **Key Difference:** Arguments are passed as an **array**.
+
+---
+
+### <span style="color:#E02d75;font-weight:bold">bind()</span>
+
+The `bind()` method **does NOT call the function immediately**.  
+Instead, it returns a **new function** with a fixed `this` value.
+
+```js
 let person = {
   name: "John",
-  greet: function() {
+  greet: function () {
     console.log(`Hello, my name is ${this.name}.`);
   }
 };
 
 let greetPerson = person.greet.bind(person);
 
-greetPerson(); // Output: Hello, my name is John.
+greetPerson(); 
+// Output: Hello, my name is John.
+```
+
+👉 Useful when you want to **store or pass a function with fixed `this`**.
+
+---
+
+### Real World e.g`
+```js
+const car = {
+  brand: "Tesla",
+  getInfo: function(speed, color) {
+    return `${this.brand} is going at ${speed} km/h in ${color} color`;
+  }
+};
+
+const bike = { brand: "Yamaha" };
+
+// 1. Using call() - Correct
+console.log( car.getInfo.call(bike, 120, "red") );
+// Output: "Yamaha is going at 120 km/h in red color"
+
+// 2. Using apply() - You wrote it wrong! Here's the fix:
+console.log( car.getInfo.apply(bike, [80, "blue"]) );
+// Output: "Yamaha is going at 80 km/h in blue color"
+```
+
+### 🔥 Quick Comparison
+
+| Feature        | call()                  | apply()                 | bind()                     |
+|----------------|-------------------------|------------------------|----------------------------|
+| Executes now   | ✅ Yes                  | ✅ Yes                 | ❌ No                      |
+| Returns        | Function result         | Function result        | New function               |
+| Arguments      | Individually            | Array                  | Individually (optional)    |
+| Use case       | Immediate call          | Array arguments        | Reusable function          |
+
+---
+
+👉 With Arrow Functions </br>
+Arrow functions ignore call/apply/bind for this. They lexically capture this from the surrounding scope.
+
+### 🧠 Easy Way to Remember
+
+- **call → Call now (args one by one)**
+- **apply → Apply with array**
+- **bind → Bind now, call later**
 
 # Difference between pass by value and pass by reference
 
