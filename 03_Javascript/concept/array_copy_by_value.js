@@ -1,54 +1,59 @@
-// How to Copy Array by Value in JavaScript ?
+/**
+ * How to Copy an Array by Value in JavaScript
+ * ---------------------------------------------
+ * Assigning an array directly (`const b = a`) only copies the *reference*,
+ * so both variables point to the same array in memory — mutating one
+ * mutates the other. The techniques below create a genuinely new array.
+ *
+ * Note: Spread, Array.from(), slice(), and map() all produce *shallow*
+ * copies — nested objects/arrays inside are still shared by reference.
+ * JSON parse/stringify (and structuredClone) produce *deep* copies.
+ */
 
-const a = [ 10, 20, 30, 40, 50 ];
+const original = [10, 20, 30, 40, 50];
 
-// Using Spread Operator
-/* 
-The JavaScript spread operator is a concise and easy method to copy an array by value.
-The spread operator allows you to expand an array into individual elements, which can then be used to create a new array.
-*/
-const spreadOperator  = [...a];
+// 1. Spread Operator — concise, fast, most common for shallow copies
+const spreadCopy = [...original];
+console.log('1. Spread operator:', spreadCopy);
+console.log('   Same reference?', original === spreadCopy); // false
 
-console.log("New Array: ", a1); // New Array:  [ 10, 20, 30, 40, 50 ] 
-console.log("Is Both Arrays has Same Reference: ", a === a1); // false
+// 2. Array.from() — also accepts a map function as a 2nd arg
+const arrayFromCopy = Array.from(original);
+console.log('2. Array.from():', arrayFromCopy);
+console.log('   Same reference?', original === arrayFromCopy); // false
 
-//  Using array.from() Method
-/* 
-The Array.from() method is another way to copy an array by its value in JavaScript.
-This method creates a new array from an existing array, using an optional mapping function to transform the values in the new array.
-*/
-const ArrayFrom = Array.from(a);
+// 3. Array.prototype.slice() — no arguments clones the whole array
+const sliceCopy = original.slice();
+console.log('3. slice():', sliceCopy);
+console.log('   Same reference?', original === sliceCopy); // false
 
-console.log("New Array: ", a1);  // New Array:  [ 10, 20, 30, 40, 50 ]
-console.log("Is Both Arrays has Same Reference: ", a === a1); // false
+// 4. Array.prototype.map() — useful when you also want to transform values;
+//    for a plain copy, just return the item unchanged
+const mapCopy = original.map((item) => item);
+console.log('4. map():', mapCopy);
+console.log('   Same reference?', original === mapCopy); // false
 
-// Using array.slice() Method
-/* 
-The slice() method creates a copy of an array by its value in JavaScript. This method creates a new array with a subset of the elements from the original array.
-*/
+// 5. JSON.parse(JSON.stringify()) — deep copy, but drops functions,
+//    undefined, Symbols, Dates (become strings), and fails on circular refs
+const jsonDeepCopy = JSON.parse(JSON.stringify(original));
+console.log('5. JSON parse/stringify (deep):', jsonDeepCopy);
+console.log('   Same reference?', original === jsonDeepCopy); // false
 
-const sliceMethod  = a.slice();
-console.log('spreadOperator',spreadOperator)
+// 6. structuredClone() — modern, native deep-copy alternative to the JSON
+//    trick; handles Dates, Maps, Sets, and circular references correctly
+//    (available in Node 17+ and all evergreen browsers)
+if (typeof structuredClone === 'function') {
+    const structuredCloneCopy = structuredClone(original);
+    console.log('6. structuredClone (deep):', structuredCloneCopy);
+    console.log('   Same reference?', original === structuredCloneCopy); // false
+}
 
-console.log("New Array: ", a1);  // New Array:  [ 10, 20, 30, 40, 50 ]
-console.log("Is Both Arrays has Same Reference: ", a === a1); // false
-
-// Using array.map() Method
-/* 
-The JavaScript array.map() method copy an array in JavaScript involves creating a new array by applying a function to each element of the original array. This method is useful for creating a shallow copy or transforming elements during the copying process:
-*/
-const mapMethod  =  a.map((item) => item);
-console.log('mapMethod',mapMethod)
-
-console.log("New Array: ", a1);  // New Array:  [ 10, 20, 30, 40, 50 ]
-console.log("Is Both Arrays has Same Reference: ", a === a1); // false
-
-
-// Using JSON parse() and stringify() Methods
-/* 
-The JSON methods to copy an array involves serializing the original array to a JSON string with JSON.stringify(), then deserializing it back to a new array with JSON.parse(). This method creates a deep copy, including nested objects.
-
-*/
-const JSONPARSE_JSONSTRINGIFY = JSON.parse(JSON.stringify(a));
-
-console.log('JSONPARSE_JSONSTRINGIFY',JSONPARSE_JSONSTRINGIFY)
+/**
+ * Which one should you use?
+ * - Shallow copy of primitives (numbers, strings): spread or slice() —
+ *   both are fast and highly readable; spread is the modern idiom.
+ * - Need to transform while copying: map().
+ * - Copying an array-like or iterable (e.g. NodeList, Set): Array.from().
+ * - Deep copy with nested objects/arrays: structuredClone() (preferred)
+ *   or JSON.parse(JSON.stringify()) as a fallback for older environments.
+ */

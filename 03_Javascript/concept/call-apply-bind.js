@@ -11,8 +11,20 @@ function sayHello() {
 }
 
 const user1 = { name: "Vikas" };
-sayHello.call(user1); // Expected: Hello, I am Vikas
 
+sayHello.call(user1);
+// Expected: Hello, I am Vikas
+// 2nd e.g (this sirf object ko access kartaa hai baaki argument ko call kartaa hai )
+function sayHello(first) {
+    console.log("hello I am", this.name, this.address, first);
+}
+
+let obj = {
+    name: "vikas",
+    address: "miraroad"
+};
+
+sayHello.call(obj, "demo");
 
 // =============================
 // 2. Passing Arguments

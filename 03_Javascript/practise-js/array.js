@@ -1,142 +1,130 @@
-// Array Basic
-let num =  [1,2,4,5];
+// ============================================
+// Array Basics — corrected reference notes
+// ============================================
 
+let num = [1, 2, 4, 5];
+
+// push -> adds to the END, returns new length
 num.push(32);
-// console.log(num);
+console.log(num); // [1,2,4,5,32]
 
-// unshift at given position without removing
+// unshift -> adds to the START (index 0), NOT "insert at a position"
+// there is no built-in "insert without removing" — that's splice's job
 num.unshift(0);
-// console.log(num);
+console.log(num); // [0,1,2,4,5,32]
 
-num.pop(5);
-// console.log(num);
+// pop -> takes NO arguments, always removes the LAST element
+// pop(5) is the same as pop() — the 5 is ignored
+num.pop();
+console.log(num); // [0,1,2,4,5]
 
-// shift remove first element 
-num.shift()
-// console.log(num);
+// shift -> removes the FIRST element, returns it
+num.shift();
+console.log(num); // [1,2,4,5]
 
-// splice method first argument take number of position and 
-// 2nd one take number of value 
-num.splice(3,2);
-// console.log(num);
-
-// Array for loop 
-
-
-// let list = [
-//     "milk",
-//     "egg",
-//     "butter",
-//     "bread",
-//     "becon",
-// ]
-
-// let html = '';
-
-// for(let i=1; i<list.length; i++){
-//   html += `<li>${list[i]}</li>`;
-  
-// }
-// document.getElementById('list').innerHTML = html;
-// console.log(html)
+// splice(start, deleteCount, ...itemsToInsert)
+// removes `deleteCount` elements starting at index `start`
+// returns an ARRAY of the removed elements
+let removed = num.splice(1, 2);
+console.log(num, removed); // [1,5]  [2,4]
 
 
+// ============================================
+// Looping over arrays of objects
+// ============================================
 
-// let list = [
-//     {text: 'milk', cost:4, need:false},
-//     {text: 'egg', cost:10, need:true},
-//     {text: 'butter', cost:5, need:false},
-//     {text: 'bacon', cost:3, need:true},
-// ]
+let list = [
+    { text: 'milk', cost: 4, need: false },
+    { text: 'egg', cost: 10, need: true },
+    { text: 'butter', cost: 5, need: false },
+    { text: 'bacon', cost: 3, need: true },
+];
 
-// let html = '';
-// let total = 0;
-
-// for(let i = 1; i<list.length; i++){
-//     let item = list[i];
-
-//     html += `<li>${list[i].text}</li>`
-//     total += item.cost;
-// }
-
+// classic for loop — start at i = 0 to include every item
+let html = '';
+let total = 0;
+for (let i = 0; i < list.length; i++) {
+    let item = list[i];
+    html += `<li>${item.text}</li>`;
+    total += item.cost;
+}
 // document.getElementById('list').innerHTML = html;
 // document.getElementById('total').innerHTML = `$${total}`;
 
-// list.forEach((item,index) =>{
-//     if(item.need){
-//         html += `<li>${index}  ${item.text}</li>`
-//     }
-// })
-// document.getElementById('list').innerHTML = html;
-
-// for of loop same output
-
-// for(let item of list){
-//     if(item.need){
-//         html += `<li>${item.text}</li>`
-//     }
-// }
-
-// document.getElementById('list').innerHTML = html;
-
-// we also destturing also
-// for (let {text, cost, need} of list) {
-//     if (need) {
-//             html += `<li>${text}</li>`;
-//     }
-// }
-// document.getElementById('list').innerHTML = html;
-
-// suppose if we need index in for of loop need to add entries()
-
-// for(let [index,{text,cost,need}] of list.entries()){
-//     if(need){
-//         html += `<li>${index} ${text} </li>`;
-//     }
-// }
-// document.getElementById('list').innerHTML = html;
-
-
-// @@@@@@@@  Sorting Array @@@@@@@@@@@@@@@@@@@@@@@@
-let list = ['eggs','butter','milk','bread','bacon'];
-
-let list2 = [
-    {text: 'milk', cost:4, need:false},
-    {text: 'egg', cost:10, need:true},
-    {text: 'butter', cost:5, need:false},
-    {text: 'bacon', cost:3, need:true},
-]
-
-// list.sort((a,b) =>{
-    
-//     if(a == b){
-//         return 0;
-//     }
-//     if( a > b){
-//         return 1;
-//     }
-//     return -1
-    
-// })
-
-list2.sort((a,b) =>{
-    if(a.text === b.text){ return 0}
-
-    if (a.text > b.text){
-        return 1 // if we want decending then we will simply - 1
+// forEach — only items where need === true
+let neededHtml = '';
+list.forEach((item, index) => {
+    if (item.need) {
+        neededHtml += `<li>${index} ${item.text}</li>`;
     }
-    return -1
-})
+});
 
-let html = '';
+// for...of — same result as forEach above
+let ofHtml = '';
+for (let item of list) {
+    if (item.need) {
+        ofHtml += `<li>${item.text}</li>`;
+    }
+}
 
-// list.forEach((item) =>{
-//     html += `<li>${item}</li>`
-// })
+// for...of with destructuring
+let destructHtml = '';
+for (let { text, cost, need } of list) {
+    if (need) {
+        destructHtml += `<li>${text}</li>`;
+    }
+}
 
-list2.forEach(({text}) =>{  // here we have added es6 curly braces
-    html += `<li>${text}</li>`
-})
+// need the index too? use .entries()
+let entriesHtml = '';
+for (let [index, { text, cost, need }] of list.entries()) {
+    if (need) {
+        entriesHtml += `<li>${index} ${text}</li>`;
+    }
+}
 
-document.getElementById('list').innerHTML = html;
 
+// ============================================
+// Sorting
+// ============================================
+
+let names = ['eggs', 'butter', 'milk', 'bread', 'bacon'];
+
+// simple string sort, ascending
+names.sort((a, b) => {
+    if (a === b) return 0;
+    if (a > b) return 1;
+    return -1;
+});
+console.log(names); // ['bacon','bread','butter','eggs','milk']
+
+// sorting an array of objects by a property — ascending
+let list2 = [
+    { text: 'milk', cost: 4, need: false },
+    { text: 'egg', cost: 10, need: true },
+    { text: 'butter', cost: 5, need: false },
+    { text: 'bacon', cost: 3, need: true },
+];
+
+list2.sort((a, b) => {
+    if (a.text === b.text) return 0;
+    if (a.text > b.text) return 1;
+    return -1;
+});
+
+// DESCENDING: don't just "return -1" always — that's not a valid
+// comparator. Instead flip the comparison (or swap the branches):
+list2.sort((a, b) => {
+    if (a.text === b.text) return 0;
+    return a.text > b.text ? -1 : 1;
+});
+
+// non-mutating sort options (interview follow-up: sort() mutates!)
+let sortedCopy = [...names].sort();      // spread first, then sort
+let sortedCopy2 = names.toSorted();      // ES2023, no mutation
+
+let sortedHtml = '';
+list2.forEach(({ text }) => {
+    sortedHtml += `<li>${text}</li>`;
+});
+// document.getElementById('list').innerHTML = sortedHtml;
