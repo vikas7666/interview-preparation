@@ -1,7 +1,7 @@
 let arr1 = ['a', 'b', 'a', 'c', 'd', 'a'];
 
 let duplciate = arr1.filter((item, index) => {
-  return arr1.indexOf(item) != index  // simply chedking a ka index not equal ho bas
+  return arr1.indexOf(item) != index  // simply checking a ka index not equal ho bas
 })
 
 console.log('duplciate', duplciate) // [ 'a', 'a' ] 

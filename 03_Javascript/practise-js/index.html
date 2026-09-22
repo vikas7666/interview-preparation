@@ -1,17 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <!-- <span id="total">Total of Item</span> -->
-    <ul id="list" class="list"></ul>
-    <!-- <script src="js/array.js"></script> -->
-    <!-- <script src="js/searching_array.js"></script> -->
-    <!-- <script type="text/javascript" src="js/find_array.js"></script> -->
-    <!-- <script type="text/javascript" src="js/testing_element_exit.js"></script> -->
-    <script type="text/javascript" src="js/fetch_api.js"></script>
+
+<body style="background:#121212;color:#E0E0E0">
+
 </body>
+
+<script>
+    let array1 = [2, 3, 5, 6, 8]
+
+    function customMap(array, callback) {
+        let total = [];
+
+        for (let i = 0; i < array.length; i++) {
+            total.push(callback(array[i], i, array));
+        }
+
+        return total;
+    }
+
+    function addItem(item) {
+        return item * 2
+    }
+    function arryMinus1(item) {
+        return item * 2
+    }
+
+    const myFunc = customMap(array1, addItem)
+
+    console.log('myFunc', myFunc);
+
+
+
+
+</script>
+
 </html>
